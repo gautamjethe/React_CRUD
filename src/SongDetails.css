@@ -1,0 +1,26 @@
+/* SongDetails.css */
+.container {
+    margin-top: 50px;
+  }
+  
+  img {
+    border-radius: 10px; /* Rounded corners for the thumbnail */
+  }
+  
+  #player {
+    width: 100%; /* Make sure the player takes the full width */
+  }
+  
+  .plyr {
+    background: #f8f9fa; /* Light background for the player */
+    border-radius: 5px; /* Slightly rounded corners */
+  }
+  
+  .plyr__controls {
+    background-color: #007bff; /* Custom control color */
+  }
+  
+  .plyr__controls button {
+    color: #fff; /* White icon color for controls */
+  }
+  

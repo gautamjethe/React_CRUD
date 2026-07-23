@@ -1,0 +1,34 @@
+kind: pipeline
+type: docker
+name: deploy
+
+steps:
+  - name: install
+    image: node:20
+
+    commands:
+      - npm ci
+
+  - name: build
+    image: node:20
+
+    commands:
+      - npm run build
+
+  - name: deploy
+    image: node:20
+
+    environment:
+      VERCEL_TOKEN:
+        from_secret: vercel_token
+
+      VERCEL_ORG_ID:
+        from_secret: vercel_org_id
+
+      VERCEL_PROJECT_ID:
+        from_secret: vercel_project_id
+
+    commands:
+      - npm install -g vercel
+      - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      - vercel deploy --prod --yes --token=$VERCEL_TOKEN

@@ -171,11 +171,11 @@ export default function App() {
 
       <Routes>
         <Route path='/topsongs' element={<TopSongs songs={songs} loading={loading} />} />
-        <Route path="/songs" element={<Songs songs={songs} loading={loading} />} />
+        <Route path="/songs" element={<Songs songs={songs} albums={albums} loading={loading} />} />
         <Route path="/song/:id" element={<SongDetails />} />
       </Routes>
 
-      
+      <Footer />
     </Router>
   );
 }

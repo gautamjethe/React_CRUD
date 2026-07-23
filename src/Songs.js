@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBRow, MDBCol, MDBRipple, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBRipple, MDBBtn } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
 
 import SkeletonCard from './SkeletonCard'; // Ensure you have this component for skeleton loading
@@ -31,7 +31,14 @@ const SongsAndAlbums = ({ songs = [], albums = [], loading }) => {
                     style={{ height: '200px', objectFit: 'contain', width: '100%' }} // Use 'contain' for no trimming
                   />
                   {/* Link to navigate to the Song Details page */}
-                  <a onClick={() => navigate(`/song/${song.id}`)} style={{ cursor: 'pointer' }}>
+                  <a
+                    href={`/song/${song.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/song/${song.id}`);
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
                   </a>
                 </MDBRipple>

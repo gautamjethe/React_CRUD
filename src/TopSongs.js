@@ -77,7 +77,14 @@ export default function SongsAndAlbums() {
                       style={{ height: '200px', objectFit: 'contain', width: '100%' }} // Use 'contain' for no trimming
                     />
                     {/* Link to navigate to the Song Details page */}
-                    <a onClick={() => navigate(`/song/${song.id}`)} style={{ cursor: 'pointer' }}>
+                    <a
+                      href={`/song/${song.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/song/${song.id}`);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
                     </a>
                   </MDBRipple>
